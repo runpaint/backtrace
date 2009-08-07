@@ -12,8 +12,6 @@ describe "Backtrace#each" do
     bt, cl = backtrace_caller
     bt.each_with_index do |line, idx|
       caller_line = cl[idx].match(/^[^:]+?:(?<line>\d+)/)[:line]
-      p "line = #{line}"
-      p "caller_line = #{caller_line}"
       line.line.should == caller_line.to_i
     end
   end
