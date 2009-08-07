@@ -16,10 +16,11 @@ class Backtrace
       @file = File.expand_path(file) if file
       @line = number.to_i
       @name = name.to_sym if name
+      @ctx, @label = ctx, label
     end
 
     def to_s
-     "#{file}:#{line} in `#{name}'"
+     "#{file || '(' + @ctx + ')'}:#{line}:in `#{name || @label}'"
     end
    alias :inspect :to_s 
   end
