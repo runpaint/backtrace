@@ -1,4 +1,4 @@
-class Object
+module Kernel
   def backtrace
     Backtrace.new
   end
